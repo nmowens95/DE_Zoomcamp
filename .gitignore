@@ -12,6 +12,8 @@ postgres_pipeline/yellow_tripdata_2021-01.csv
 
 csv_data/
 
+package-lock.yml
+
 # dbt ingnore
 .user.yml
 

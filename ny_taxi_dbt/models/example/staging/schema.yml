@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: staging
+    database: "{{ env_var('DBT_DATABASE', 'ny-rides-nate') }}" # Dataset in bigquery
+    schema: "{{ env_var('DBT_SCHEMA', 'ny_taxi') }}"
+      # loaded_at_field: record_loaded_at
+    tables:
+      - name: green_taxi_pickup
+      - name: yellow_taxi_pickup
+      - name: zone_lookup
+         # freshness:
+           # error_after: {count: 6, period: hour}
