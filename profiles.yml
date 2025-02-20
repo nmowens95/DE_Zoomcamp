@@ -1,4 +1,5 @@
 ny_taxi_dbt:
+  target: dev
   outputs:
     dev:
       dataset: dbt_data
@@ -11,4 +12,14 @@ ny_taxi_dbt:
       project: ny-rides-nate
       threads: 4
       type: bigquery
-  target: dev
+    prod:
+      dataset: prd_ny_taxi
+      job_execution_timeout_seconds: 60
+      job_retries: 1
+      keyfile: /root/.google/credentials/ny-rides-nate.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: ny-rides-nate
+      threads: 4
+      type: bigquery
